@@ -1,8 +1,5 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { House } from 'lucide-react';
-import { NotebookPen } from 'lucide-react';
-import { NotepadText } from 'lucide-react';
+import { House, NotebookPen, NotepadText } from 'lucide-react';
 
 const Navi = () => {
 
@@ -24,10 +21,7 @@ const Navi = () => {
         <div className='text-white flex flex-col items-center'>
             <button onClick={() => navigate("/notes")}><NotepadText color="#ffffff" /></button>
             <p className='text-xs p-1 font-medium'>Notes</p>
-        </div>
-
-        
-        
+        </div>       
 
     </section>
   )

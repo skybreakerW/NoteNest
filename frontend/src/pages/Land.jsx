@@ -1,8 +1,6 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navi from '../components/Navi'
-import { SquarePen } from 'lucide-react';
-import { BookOpen } from 'lucide-react';
+import { SquarePen, BookOpen } from 'lucide-react';
 
 const Land = () => {
 

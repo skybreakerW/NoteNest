@@ -23,7 +23,7 @@ const Notes = () => {
 
     const deleteNote = async(id) => {
         try {
-            const response = await axios.delete(`${import.meta.env.VITE_API_URL}/notes/${id}`)
+            await axios.delete(`${import.meta.env.VITE_API_URL}/notes/${id}`)
             
             setNotes((prevNotes) => prevNotes.filter((note) => note._id !== id)
     );

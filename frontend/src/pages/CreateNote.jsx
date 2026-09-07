@@ -1,4 +1,3 @@
-import React from 'react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 import Addbtn from '../components/Addbtn.jsx'
@@ -19,13 +18,12 @@ const CreateNote = () => {
       description: formData.get("description")
     }
 
-    axios.post(`${import.meta.env.VITE_API_URL}/create`, data)
-    .then((res) => {
-      navigate("/notes")
-    .catch((err) => {
-      console.error("Failed to create note: ",err)
-    })
-    })
+    try {
+      await axios.post(`${import.meta.env.VITE_API_URL}/create`, data)
+    } catch (error) {
+      console.error("Failed to create note: ", error)
+    }
+    
   }
 
   return (
@@ -38,7 +36,7 @@ const CreateNote = () => {
         <input type="text" name= "title" placeholder='Title' required 
         className='text-3xl font-bold tracking-wider p-4 rounded-2xl outline-none' />
 
-        <textarea type="text" name="description" placeholder='Description' 
+        <textarea name="description" placeholder='Description' 
         className='text-lg h-[70%] p-2 tracking-wide leading-8 rounded-xl outline-none' />
 
         <Savebtn/>
