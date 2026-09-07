@@ -8,14 +8,20 @@ app.use(express.json())
 app.use(cors())
 
 
+
+app.get("/api/health", (req,res) => {
+    res.status(200).json({
+        status: "ok",
+        message: "Server is running", })
+})
+
 app.post("/create", async (req,res) => {
-    const data = req.body
+    const { title, description } = req.body
 
     await Notes.create({
-        title: data.title,
-        description: data.description
+        title,
+        description
     })
-
     res.status(201).json({
         message: "Note created successfully"
     })
@@ -24,7 +30,6 @@ app.post("/create", async (req,res) => {
 app.get("/notes", async (req, res) => {
 
     const notes = await Notes.find()
-    // res.send("Hello")
     res.status(200).json({
         message: "Notes fetched successfully",
         notes,
@@ -34,7 +39,6 @@ app.get("/notes", async (req, res) => {
 app.delete("/notes/:id", async(req, res) => {
 
     const id = req.params.id
-
     await Notes.findOneAndDelete({
         _id: id,
     })
@@ -44,6 +48,13 @@ app.delete("/notes/:id", async(req, res) => {
     })
 })
 
+app.use((err, req, res, next) => {
+    console.log("Error: ", err)
+
+    res.status(500).json({
+        message: "Something went wrong on the server."
+    })
+})
 
 
 
