@@ -1,5 +1,5 @@
 import express from "express";
-import { Notes } from "./models/notes.model.js"
+import { Note } from "./models/note.model.js"
 import cors from "cors" 
 
 const app = express()
@@ -18,7 +18,7 @@ app.get("/api/health", (req,res) => {
 app.post("/create", async (req,res) => {
     const { title, description } = req.body
 
-    await Notes.create({
+    await Note.create({
         title,
         description
     })
@@ -29,7 +29,7 @@ app.post("/create", async (req,res) => {
 
 app.get("/notes", async (req, res) => {
 
-    const notes = await Notes.find()
+    const notes = await Note.find()
     res.status(200).json({
         message: "Notes fetched successfully",
         notes,
@@ -39,7 +39,7 @@ app.get("/notes", async (req, res) => {
 app.delete("/notes/:id", async(req, res) => {
 
     const id = req.params.id
-    await Notes.findOneAndDelete({
+    await Note.findOneAndDelete({
         _id: id,
     })
 
