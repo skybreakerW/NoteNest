@@ -2,6 +2,7 @@ import express from "express";
 import { Note } from "./models/note.model.js"
 import cors from "cors" 
 import { authRouter } from "./routes/auth.route.js"
+import { authMiddleware } from "./middlewares/auth.middleware.js";
 
 const app = express()
 
@@ -10,6 +11,13 @@ app.use(cors())
 
 app.use("/api/auth", authRouter)
 
+
+app.get("/api/protected", authMiddleware, (req,res)=>{
+    res.status(200).json({
+        message: "Authenticated!",
+        userId: req.user._id,
+    })
+})
 
 
 app.get("/api/health", (req,res) => {
