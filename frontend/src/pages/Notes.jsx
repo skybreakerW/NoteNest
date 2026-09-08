@@ -1,17 +1,16 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import axios from "axios"
 import Addbtn from '../components/Addbtn.jsx';
 import Navi from "../components/Navi.jsx"
 import { SquareX } from 'lucide-react';
+import api from '../api/api.js';
 
 const Notes = () => {
     const [notes, setNotes] = useState([])
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/notes`)
+        api.get("/notes")
         .then((res) => {
             setNotes(res.data.notes)
         })
@@ -23,7 +22,7 @@ const Notes = () => {
 
     const deleteNote = async(id) => {
         try {
-            await axios.delete(`${import.meta.env.VITE_API_URL}/notes/${id}`)
+            await api.delete(`/notes/${id}`)
             
             setNotes((prevNotes) => prevNotes.filter((note) => note._id !== id)
     );
