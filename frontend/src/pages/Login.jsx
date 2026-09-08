@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext.jsx";
 import axios from "axios";
 
 const Login = () => {
@@ -9,6 +10,7 @@ const Login = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
+    const { login } = useContext(AuthContext)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,8 +28,7 @@ const Login = () => {
 
             const data = response.data
 
-            localStorage.setItem("token", data.token)
-            localStorage.setItem("user", JSON.stringify(data.user))
+            login(data.token, data.user)
 
             navigate("/notes")
 
