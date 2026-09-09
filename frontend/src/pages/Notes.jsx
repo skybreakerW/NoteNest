@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Addbtn from '../components/Addbtn.jsx';
 import Navi from "../components/Navi.jsx"
 import { SquareX } from 'lucide-react';
-import api from '../api/api.js';
+import api from '../api/api.jsx';
 
 const Notes = () => {
     const [notes, setNotes] = useState([])

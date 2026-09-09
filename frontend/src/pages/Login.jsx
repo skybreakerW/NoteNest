@@ -1,8 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext.jsx";
-import axios from "axios";
-import api from "../api/api.js"
+import api from "../api/api.jsx"
 
 const Login = () => {
     const [email, setEmail] = useState("");

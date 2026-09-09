@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import Addbtn from '../components/Addbtn.jsx'
 import Savebtn from '../components/Savebtn.jsx'
 import Navi from "../components/Navi.jsx"
-import api from "../api/api.js"
+import api from "../api/api.jsx"
 
 const CreateNote = () => {
 
