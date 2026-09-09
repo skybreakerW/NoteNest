@@ -50,31 +50,40 @@ const deleteNote = async(req, res) => {
 
 
 const updateNote = async(req,res) => {
-    const { id } = req.params
-    const { title, description } = req.body
+    try {
+        const { id } = req.params
+        const { title, description } = req.body
+    
+        const note = await Note.findOneAndUpdate({
+            _id: id,
+            user: req.user._id,
+        },
+        {
+            title,
+            description,    
+        },
+        {
+            returnDocument: "after",
+            runValidators: true
+        })
+    
+        if(!note){
+            return res.status(404).json({
+                message: "Note not found."
+            })
+        }
+        
+        res.status(200).json({
+            message: "Note updated successfully.",
+            note
+        })
+    } catch (error) {
+        console.error("Failed to update note:", error)
 
-    const note = await Note.findOneAndUpdate({
-        _id: id,
-        user: req.user._id,
-    },
-    {
-        title,
-        description,    
-    },
-    {
-        new: true,
-        runValidators: true
-    })
-
-    if(!note){
-        return res.status(404).json({
-            message: "Note not found.",
+        return res.status(400).json({
+            message: error.message,
         })
     }
-    
-    res.status(200).json({
-        message: "Note updated successfully."
-    })
 
 }
 
