@@ -1,9 +1,11 @@
 import { Routes, Route } from "react-router-dom"
 import Land from "./pages/Land.jsx"
+import ProtectedRoute from "./components/ProtectedRoute.jsx"
+import Signup from "./pages/Signup.jsx"
+import Login from "./pages/Login.jsx"
 import CreateNote from "./pages/CreateNote.jsx"
 import Notes from "./pages/Notes.jsx"
-import Login from "./pages/Login.jsx"
-import ProtectedRoute from "./components/ProtectedRoute.jsx"
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
     <Routes>
 
       <Route path = '/' element={<Land/>} />
+      <Route path = '/signup' element={<Signup/>} />
       <Route path = '/login' element={<Login/>} />
 
 
