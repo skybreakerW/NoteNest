@@ -1,8 +1,8 @@
-import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 import Addbtn from '../components/Addbtn.jsx'
 import Savebtn from '../components/Savebtn.jsx'
 import Navi from "../components/Navi.jsx"
+import api from "../api/api.js"
 
 const CreateNote = () => {
 
@@ -19,7 +19,8 @@ const CreateNote = () => {
     }
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/create`, data)
+      await api.post("/notes", data)
+      navigate("/notes")
     } catch (error) {
       console.error("Failed to create note: ", error)
     }
