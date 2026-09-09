@@ -1,5 +1,4 @@
 import express from "express";
-import { Note } from "./models/note.model.js"
 import cors from "cors" 
 import { authRouter } from "./routes/auth.route.js"
 import { noteRouter } from "./routes/note.route.js";
@@ -28,38 +27,6 @@ app.get("/api/health", (req,res) => {
         message: "Server is running", })
 })
 
-app.post("/create", async (req,res) => {
-    const { title, description } = req.body
-
-    await Note.create({
-        title,
-        description
-    })
-    res.status(201).json({
-        message: "Note created successfully"
-    })
-})
-
-app.get("/notes", async (req, res) => {
-
-    const notes = await Note.find()
-    res.status(200).json({
-        message: "Notes fetched successfully",
-        notes,
-    })
-})
-
-app.delete("/notes/:id", async(req, res) => {
-
-    const id = req.params.id
-    await Note.findOneAndDelete({
-        _id: id,
-    })
-
-    res.status(200).json({
-        message: "Note deleted successfully."
-    })
-})
 
 app.use((err, req, res, next) => {
     console.log("Error: ", err)
