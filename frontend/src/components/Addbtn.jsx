@@ -10,10 +10,14 @@ const Addbtn = () => {
     }
 
   return (
-    <button type='button'
+
+    <button 
+    type='button'
     onClick={handleClick}
-    className='bg-slate-600 rounded-full fixed bottom-20 right-4'>
-        <CirclePlus size={28} color="#ffffff" strokeWidth={0.5} />
+    className='bg-[#8881DD] rounded-full fixed bottom-20 right-6'>
+
+      <CirclePlus size={46} color="#FAF9F6" strokeWidth={1.5} />
+
     </button>
   )
 }
