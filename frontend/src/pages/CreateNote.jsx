@@ -1,12 +1,16 @@
 import { useNavigate } from 'react-router-dom'
-import Addbtn from '../components/Addbtn.jsx'
 import Savebtn from '../components/Savebtn.jsx'
 import Navi from "../components/Navi.jsx"
 import api from "../api/api.jsx"
+import { ArrowLeft } from 'lucide-react';
 
 const CreateNote = () => {
 
   const navigate = useNavigate()
+
+  const backbtn = () => {
+    navigate("/notes")
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -28,24 +32,37 @@ const CreateNote = () => {
   }
 
   return (
-    <>
-    <Navi/>
-    <section className='min-h-screen bg-[#22242a] border-amber-100 flex justify-center items-start p-12'>
-    
-      <form onSubmit={handleSubmit} className='h-[88vh] text-white flex flex-col gap-10 max-w-85'>
+    <div className='h-screen bg-[#FAF9F6]'>
 
-        <input type="text" name= "title" placeholder='Title' required 
-        className='text-3xl font-bold tracking-wider p-4 rounded-2xl outline-none' />
+      <Navi/>
 
-        <textarea name="description" placeholder='Description' 
-        className='text-lg h-[70%] p-2 tracking-wide leading-8 rounded-xl outline-none' />
+      <div className='relative'>
+        <button
+        type='button'
+        aria-label="Back to notes"
+        onClick={backbtn} 
+        className='absolute top-6 left-6'>
+          <ArrowLeft color='#6C63D9' size={36} />
+        </button>
+      </div>
 
-        <Savebtn/>
-
-      </form>
+      <section className='min-h-screen flex items-start px-6 py-8'>
         
-    </section>
-    </>
+        
+        <form onSubmit={handleSubmit} className='flex flex-col gap-10 w-full'>
+
+          <input type="text" name= "title" placeholder='Title' required 
+          className='text-5xl text-[#2D3142] font-black font-caveat tracking-wider px-4 py-2 rounded-xl outline-none mt-12' />
+
+          <textarea name="description" placeholder='Description' 
+          className='text-xl text-[#6B7080] font-poppins h-[70%] px-4 tracking-wide leading-8 rounded-xl outline-none' />
+
+          <Savebtn/>
+
+        </form>
+          
+      </section>
+    </div>
   )
 }
 
