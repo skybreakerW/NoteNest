@@ -47,7 +47,7 @@ const Signup = () => {
   return (
      <div className="min-h-screen max-h-screen w-full bg-[#FAF9F6] flex justify-center items-center">
 
-        <div className="flex flex-col max-w-md lg:max-w-full items-center justify-center w-full p-10">
+        <div className="flex flex-col max-w-md lg:max-w-full items-center justify-center w-full p-4">
 
             <img src={Noteappdesign} alt="NoteNest" className="h-40 w-60 object-contain" />
             <h1 className="text-[#2D3142] font-black text-[50px] font-caveat">NoteNest</h1>
