@@ -1,5 +1,5 @@
 import api from "../api/api.jsx"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
 
 const Signup = () => {
@@ -88,6 +88,12 @@ const Signup = () => {
                     {isLoading ? "Creating account..." : "Sign Up"}
                 </button>
             </form>
+            <p>
+                Already have an account?{" "}
+                <Link to="/login" className="text-[#8881DD] font-bold">
+                    Log In
+                </Link>
+            </p>
         </div>
   )
 }

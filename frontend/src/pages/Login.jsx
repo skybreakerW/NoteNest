@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext.jsx";
 import api from "../api/api.jsx"
 
@@ -78,6 +78,12 @@ const Login = () => {
                     {isLoading ? "Logging in..." : "Log In"}
                 </button>
             </form>
+            <p>
+                Don't have an account?{" "}
+                <Link to="/signup" className="text-[#8881DD] font-bold">
+                    Sign Up
+                </Link>
+            </p>
         </div>
     );
 };
