@@ -63,21 +63,20 @@ const Notes = () => {
     }
 
   return ( 
-  <div className='bg-[#22242a] mb-16'>
-     <div className='min-h-screen relative'>
+  <div className='bg-[#FAF9F6] mb-16 min-h-screen'>
+     
+         <h3 className='text-[#6B7080] text-xl font-medium px-8 pt-10 font-poppins'>Collections</h3> 
 
-         <h1 className='text-white text-3xl font-extrabold absolute top-6 left-8'> Collections: </h1> 
-
-            <section className='flex flex-col flex-wrap justify-center items-center gap-6 p-4'>
+            <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 pb-24'>
                 
                  {notes.length > 0 ? ( notes.map((note) => ( 
-                    <div key={note._id} className='h-auto w-96 bg-slate-500 text-white rounded-2xl p-4 first:mt-20 relative' > 
+                    <div key={note._id} className='h-auto w-full bg-[#FFFFFF] text-[#2D3142] font-poppins rounded-2xl p-4 relative' > 
 
                         {editingNote?._id !== note._id && (
                         <button 
                             className='absolute right-5 cursor-pointer'
                             onClick={() => deleteNote(note._id)} >  
-                            <SquareX size={20} color="white" strokeWidth={2} />
+                            <SquareX size={20} color="#6B7080" strokeWidth={2} />
                         </button>
                         )}
 
@@ -85,14 +84,14 @@ const Notes = () => {
                         <button 
                             className='absolute bottom-2 right-5 cursor-pointer'
                             onClick={() => setEditingNote(note)} > 
-                            <SquarePen size={20} color="white" strokeWidth={1.5} /> 
+                            <SquarePen size={20} color="#8881DD" strokeWidth={1.5} /> 
                         </button>
                         )}
 
                         {editingNote?._id === note._id ? ( 
                         <div className="flex flex-col gap-4 pr-6"> 
 
-                            <input className='text-2xl p-2 font-black tracking-wider rounded-lg outline-none'
+                            <input className='text-4xl text-[#2D3142] font-black font-caveat tracking-wider rounded-xl outline-none'
                                 type="text"
                                 maxLength={100} 
                                 value={editingNote.title} 
@@ -104,7 +103,7 @@ const Notes = () => {
                                 }
                                 } />
 
-                            <textarea className='text-md p-2 font-bold tracking-wide leading-7 rounded-lg outline-none min-h-40 resize-none'
+                            <textarea className='text-md p-2 text-[#6B7080] font-poppins tracking-wide min-h-40 resize-none leading-8 rounded-xl outline-none'
                                 value={editingNote.description} 
                                 onChange={(e) => { setUpdateError("")
                                     setEditingNote(
@@ -124,7 +123,7 @@ const Notes = () => {
 
                                 <button
                                     type='button'
-                                    className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold cursor-pointer flex items-center gap-1" 
+                                    className="bg-[#8881DD] hover:bg-[#6C63D9] px-4 py-2 rounded-lg text-xl font-extrabold font-caveat cursor-pointer flex items-center gap-1" 
                                     onClick={updateNote} >
                                     <SaveCheck size={16} color="white" strokeWidth={2.5} />
                                     <p>Save</p>
@@ -132,7 +131,7 @@ const Notes = () => {
                                 
                                 <button
                                     type='button'
-                                    className="bg-slate-700 hover:bg-slate-800 px-4 py-2 rounded-lg font-semibold cursor-pointer flex items-center gap-1" 
+                                    className="bg-[#6B7080] hover:bg-[#2D3142] px-4 py-2 rounded-lg text-xl font-extrabold font-caveat cursor-pointer flex items-center gap-1" 
                                     onClick={() => { setUpdateError("") 
                                     setEditingNote(null)}} > 
                                     <SaveOff size={16} color="white" strokeWidth={2.5} />
@@ -149,13 +148,25 @@ const Notes = () => {
                     </> 
                     )} 
                     </div>
-                  )) ) : ( 
-                  <h1 className='text-white content-center mt-40'> No Notes to show </h1> 
+                  )) ) : ( <div className='h-screen flex flex-col items-center justify-center gap-12'>
+
+                  <h1 className="font-caveat font-bold text-6xl text-[#2D3142]"> NoteNest</h1>
+                  <p className="font-poppins text-[#6B7080] text-[14px] leading-5 w-60">"Small steps in writing today, make big dreams come true tomorrow."</p> 
+                  <div className="flex items-center justify-center gap-2"> 
+                    <div className="h-0.5 w-10 bg-[#6C63D9]" />
+                    <span>💜</span>
+                    <div className="h-0.5 w-10 bg-[#6C63D9]" />
+                    </div>
+                    <div className='flex flex-col items-center p-2'>
+                    <h3 className="font-caveat font-bold text-2xl text-[#2D3142] p-2">No notes yet</h3>
+                    <p className="font-poppins text-[#6B7080] text-[14px] leading-5 w-50 text-center">Tap the + button to add <span>your first note.</span></p>
+                    </div>
+                  </div>
                 )} 
-                    <Addbtn />
+                    <Addbtn color="#8881DD"/>
                 </section> 
             <Navi /> 
-        </div> 
-    </div> ) }
+    </div> 
+   ) }
 
 export default Notes
