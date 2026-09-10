@@ -1,13 +1,8 @@
-import dotenv from "dotenv"
+import "./load-env.js"
 import { connectDB } from "./src/db/db.js"
 import { app } from "./src/app.js"
 
-dotenv.config({
-    path: "./.env"
-})
-
 const port = process.env.PORT || 8080
-
 
 const startServer = async() => {
     try {

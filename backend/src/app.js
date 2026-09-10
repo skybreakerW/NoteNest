@@ -4,10 +4,14 @@ import { authRouter } from "./routes/auth.route.js"
 import { noteRouter } from "./routes/note.route.js";
 import { authMiddleware } from "./middlewares/auth.middleware.js";
 
+
 const app = express()
 
+
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: process.env.FRONTEND_URL
+}))
 
 app.use("/api/auth", authRouter)
 app.use("/api/notes", noteRouter)
