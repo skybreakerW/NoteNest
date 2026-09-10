@@ -1,4 +1,9 @@
-# <p align="center"><img src="./frontend/src/assets/logo.png" alt="logo" width="50" /> NoteNest </p>
+<p align="start">
+  <span style="display: inline-flex; align-items: center; gap: 8px;">
+    <img src="./frontend/src/assets/logo.png" alt="logo" width="60" />
+    <strong style="font-size: 2em;">NoteNest</strong>
+  </span>
+</p>
 
 
 
