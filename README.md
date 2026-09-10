@@ -1,9 +1,9 @@
-<p align="start">
+<h1 align="start">
   <span style="display: inline-flex; align-items: center; gap: 8px;">
     <img src="./frontend/src/assets/logo.png" alt="logo" width="60" />
-    <strong style="font-size: 2em;">NoteNest</strong>
+    NoteNest
   </span>
-</p>
+</h1>
 
 
 
