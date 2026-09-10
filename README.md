@@ -175,7 +175,7 @@ The backend requires:
 
 ## Current Status
 
-NoteNest is an actively developed portfolio project.
+NoteNest is a deployed full-stack portfolio project demonstrating authentication, authorization, CRUD operations, and production deployment using the MERN stack.
 
 The current version includes:
 
@@ -188,12 +188,9 @@ The current version includes:
 
 ## Future Improvements
 
-* Production deployment
-* Improved loading and error states
+* Automated frontend/backend testing
 * Note search and filtering
 * Note categories or tags
-* Automated testing
-* Improved production security configuration
 
 ## Author
 
