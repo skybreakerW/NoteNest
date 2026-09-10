@@ -1,1 +1,1 @@
-export const DB_NAME = "mynotesapp";
+export const DB_NAME = "NoteNest";
