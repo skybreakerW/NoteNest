@@ -35,8 +35,8 @@ app.get("/api/health", (req,res) => {
 app.use((err, req, res, next) => {
     console.log("Error: ", err)
 
-    res.status(500).json({
-        message: "Something went wrong on the server."
+    res.status(err.status || 500).json({
+        message: err.message || "Something went wrong on the server."
     })
 })
 
