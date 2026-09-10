@@ -2,7 +2,7 @@ import api from "../api/api.jsx"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
 import { UserRound, Mail, LockKeyhole, Eye, EyeOff, UserRoundPlus } from 'lucide-react';
-import Noteappdesign from "../assets/Noteappdesign.jpeg"
+import logo from "../assets/logo.png"
 
 const Signup = () => {
 
@@ -45,11 +45,11 @@ const Signup = () => {
 
 
   return (
-     <div className="min-h-screen max-h-screen w-full bg-[#FAF9F6] flex justify-center items-center">
+     <div className="h-dvh w-full bg-[#FAF9F6] flex justify-center items-center">
 
         <div className="flex flex-col max-w-md lg:max-w-full items-center justify-center w-full p-4">
 
-            <img src={Noteappdesign} alt="NoteNest" className="h-40 w-60 object-contain" />
+            <img src={logo} alt="NoteNest" className="h-40 w-60 object-contain" />
             <h1 className="text-[#2D3142] font-black text-[50px] font-caveat">NoteNest</h1>
 
 
@@ -141,7 +141,7 @@ const Signup = () => {
                     
                 </div>
             </form>
-            <p className="flex flex-col items-center py-4 italic tracking-wide">
+            <p className="flex flex-col items-center py-4 italic tracking-wide mt-2">
                 Already have an account?{" "}
                 <Link to="/login" className="text-[#8881DD] font-extrabold not-italic">
                     Log In

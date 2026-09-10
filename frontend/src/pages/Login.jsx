@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext.jsx";
 import api from "../api/api.jsx"
-import Noteappdesign from "../assets/Noteappdesign.jpeg"
+import logo from "../assets/logo.png"
 import { Mail, LockKeyhole, Eye, EyeOff, UserRoundKey  } from 'lucide-react';
 
 const Login = () => {
@@ -49,11 +49,11 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen max-h-screen w-full bg-[#FAF9F6] flex justify-center items-center">
+        <div className="h-dvh w-full bg-[#FAF9F6] flex justify-center items-center">
 
         <div className="flex flex-col max-w-md lg:max-w-md items-center justify-center w-full p-4">
 
-            <img src={Noteappdesign} alt="NoteNest" className="h-40 w-60 object-contain" />
+            <img src={logo} alt="NoteNest" className="h-40 w-60 object-contain" />
             <h1 className="text-[#2D3142] font-black text-[50px] font-caveat">NoteNest</h1>
 
             <div className="w-full flex flex-col items-start p-6 mb-4">   
