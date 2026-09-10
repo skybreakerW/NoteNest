@@ -118,6 +118,5 @@ dist
 .pnp.*
 
 *.txt
-assets/
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Node
