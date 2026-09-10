@@ -1,4 +1,6 @@
-# NoteNest
+# <p align="center"><img src="./frontend/src/assets/logo.png" alt="logo" width="50" /> NoteNest </p>
+
+
 
 A full-stack note-taking application built with the MERN stack.
 
