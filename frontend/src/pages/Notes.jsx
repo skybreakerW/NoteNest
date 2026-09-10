@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import Addbtn from '../components/Addbtn.jsx';
 import Navi from "../components/Navi.jsx"
-import { SquareX, SquarePen, SaveOff, SaveCheck } from 'lucide-react';
+import { SquareX, SquarePen, SaveOff, SaveCheck, LogOut } from 'lucide-react';
 import api from '../api/api.jsx';
+import { AuthContext } from '../context/AuthContext.jsx';
 
 const Notes = () => {
     const [notes, setNotes] = useState([])
     const [editingNote, setEditingNote] = useState(null)
     const [updateError, setUpdateError] = useState("")
+    const { logout } = useContext(AuthContext)
 
 
     useEffect(() => {
@@ -62,11 +64,16 @@ const Notes = () => {
         }
     }
 
-  return ( 
-  <div className='bg-[#FAF9F6] mb-16 min-h-screen'>
-     
-         <h3 className='text-[#6B7080] text-xl font-medium px-8 pt-10 font-poppins'>Collections</h3> 
+    const handleLogout = () => {
+        logout()
+    }
 
+  return ( 
+  <div className='bg-[#FAF9F6] mb-16 h-dvh'>
+        <div className='flex items-center justify-between'>
+            <h3 className='text-[#6B7080] text-xl font-medium px-8 pt-10 font-poppins'>Collections</h3> 
+            <button type="button" aria-label="Log out" onClick={handleLogout} className='px-8 pt-10'><LogOut size={20} strokeWidth={1.5} /></button>
+        </div>
             <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 pb-24'>
                 
                  {notes.length > 0 ? ( notes.map((note) => ( 
@@ -143,8 +150,8 @@ const Notes = () => {
                         </div> 
                         ) : ( 
                     <> 
-                        <h1 className='text-2xl p-1 ml-2 font-black tracking-wider'> {note.title} </h1> 
-                        <h3 className='text-md p-1 ml-2 font-bold tracking-wide leading-7'> {note.description} </h3> 
+                        <h1 className='text-4xl p-1 ml-2 font-black tracking-wider font-caveat'> {note.title} </h1> 
+                        <h3 className='text-md p-1 ml-2 font-medium tracking-wide leading-7 font-poppins'> {note.description} </h3> 
                     </> 
                     )} 
                     </div>

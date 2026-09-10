@@ -48,7 +48,7 @@ const AuthProvider = ({children}) => {
                     isProtectedRequest
                 ) {
                     logout()
-                    navigate("/login", { replace: true })
+                    navigate("/", { replace: true })
                 }
 
                 return Promise.reject(error)
