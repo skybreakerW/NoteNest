@@ -1,7 +1,7 @@
 <p align="start">
   <span style="display: inline-flex; align-items: center; gap: 8px;">
     <img src="./frontend/src/assets/logo.png" alt="logo" width="60" />
-    <strong style="font-size: 2em;">NoteNest</strong>
+    <strong style="font-size: 2rem;">NoteNest</strong>
   </span>
 </p>
 
