@@ -4,6 +4,7 @@ import Navi from "../components/Navi.jsx"
 import { SquareX, SquarePen, SaveOff, SaveCheck, LogOut } from 'lucide-react';
 import api from '../api/api.jsx';
 import { AuthContext } from '../context/AuthContext.jsx';
+import logo from "../assets/logo.png"
 
 const Notes = () => {
     const [notes, setNotes] = useState([])
@@ -69,15 +70,18 @@ const Notes = () => {
     }
 
   return ( 
-  <div className='bg-[#FAF9F6] mb-16 h-dvh'>
+    <>
+  <div className='bg-[#FAF9F6] min-h-dvh'>
+
         <div className='flex items-center justify-between'>
             <h3 className='text-[#6B7080] text-xl font-medium px-8 pt-10 font-poppins'>Collections</h3> 
             <button type="button" aria-label="Log out" onClick={handleLogout} className='px-8 pt-10'><LogOut size={20} strokeWidth={1.5} /></button>
         </div>
-            <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 pb-24'>
+
+            <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 pb-32'>
                 
                  {notes.length > 0 ? ( notes.map((note) => ( 
-                    <div key={note._id} className='h-auto w-full bg-[#FFFFFF] text-[#2D3142] font-poppins rounded-2xl p-4 relative' > 
+                    <div key={note._id} className='h-auto w-full bg-[#FFFFFF] text-[#2D3142] rounded-2xl p-4 relative' > 
 
                         {editingNote?._id !== note._id && (
                         <button 
@@ -155,25 +159,31 @@ const Notes = () => {
                     </> 
                     )} 
                     </div>
-                  )) ) : ( <div className='h-screen flex flex-col items-center justify-center gap-12'>
-
+                  )) ) : ( <div className='flex flex-col items-center justify-start gap-12 pt-12'>
+                    <img src={logo} alt="logo" className="h-40 w-60 object-contain" />
                   <h1 className="font-caveat font-bold text-6xl text-[#2D3142]"> NoteNest</h1>
                   <p className="font-poppins text-[#6B7080] text-[14px] leading-5 w-60">"Small steps in writing today, make big dreams come true tomorrow."</p> 
+
                   <div className="flex items-center justify-center gap-2"> 
-                    <div className="h-0.5 w-10 bg-[#6C63D9]" />
-                    <span>💜</span>
-                    <div className="h-0.5 w-10 bg-[#6C63D9]" />
+                        <div className="h-0.5 w-10 bg-[#6C63D9]" />
+                            <span>💜</span>
+                        <div className="h-0.5 w-10 bg-[#6C63D9]" />
                     </div>
+
                     <div className='flex flex-col items-center p-2'>
-                    <h3 className="font-caveat font-bold text-2xl text-[#2D3142] p-2">No notes yet</h3>
-                    <p className="font-poppins text-[#6B7080] text-[14px] leading-5 w-50 text-center">Tap the + button to add <span>your first note.</span></p>
+                        <h3 className="font-caveat font-bold text-2xl text-[#2D3142] p-2">No notes yet</h3>
+                        <p className="font-poppins text-[#6B7080] text-[14px] leading-5 w-50 text-center">Tap the + button to add <span>your first note.</span></p>
                     </div>
+
                   </div>
                 )} 
-                    <Addbtn color="#8881DD"/>
-                </section> 
-            <Navi /> 
+                    
+                </section>
+                <Addbtn/>
+                <Navi/>
     </div> 
+    
+    </>
    ) }
 
 export default Notes
