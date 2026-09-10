@@ -4,6 +4,7 @@ import helmet from "helmet"
 import { authRouter } from "./routes/auth.route.js"
 import { noteRouter } from "./routes/note.route.js";
 import { authMiddleware } from "./middlewares/auth.middleware.js";
+import { authLimiter } from "./middlewares/rateLimit.middleware.js";
 
 
 const app = express()
@@ -15,7 +16,7 @@ app.use(cors({
     origin: process.env.FRONTEND_URL
 }))
 
-app.use("/api/auth", authRouter)
+app.use("/api/auth", authLimiter, authRouter)
 app.use("/api/notes", noteRouter)
 
 
