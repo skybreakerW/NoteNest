@@ -1,49 +1,47 @@
 import express from "express";
-import { Notes } from "./models/notes.model.js"
-import cors from "cors" 
+import cors from "cors"
+import helmet from "helmet" 
+import { authRouter } from "./routes/auth.route.js"
+import { noteRouter } from "./routes/note.route.js";
+import { authMiddleware } from "./middlewares/auth.middleware.js";
+import { authLimiter } from "./middlewares/rateLimit.middleware.js";
+
 
 const app = express()
+app.use(helmet())
+
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: process.env.FRONTEND_URL
+}))
+
+app.use("/api/auth", authLimiter, authRouter)
+app.use("/api/notes", noteRouter)
 
 
-app.post("/create", async (req,res) => {
-    const data = req.body
-
-    await Notes.create({
-        title: data.title,
-        description: data.description
-    })
-
-    res.status(201).json({
-        message: "Note created successfully"
-    })
-})
-
-app.get("/notes", async (req, res) => {
-
-    const notes = await Notes.find()
-    // res.send("Hello")
+app.get("/api/protected", authMiddleware, (req,res)=>{
     res.status(200).json({
-        message: "Notes fetched successfully",
-        notes,
+        message: "Authenticated!",
+        userId: req.user._id,
     })
 })
 
-app.delete("/notes/:id", async(req, res) => {
 
-    const id = req.params.id
-
-    await Notes.findOneAndDelete({
-        _id: id,
-    })
-
+app.get("/api/health", (req,res) => {
     res.status(200).json({
-        message: "Note deleted successfully."
-    })
+        status: "ok",
+        message: "Server is running", })
 })
 
+
+app.use((err, req, res, next) => {
+    console.log("Error: ", err)
+
+    res.status(err.status || 500).json({
+        message: err.message || "Something went wrong on the server."
+    })
+})
 
 
 

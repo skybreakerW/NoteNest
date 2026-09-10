@@ -1,40 +1,55 @@
 import { useNavigate } from 'react-router-dom'
-import Navi from '../components/Navi'
-import { SquarePen, BookOpen } from 'lucide-react';
+import logo from "../assets/logo.png"
+import { ArrowRight } from 'lucide-react';
 
 const Land = () => {
 
   const navigate = useNavigate()
 
-  const create = () => {
-    navigate("/create")
+  const handleLogin = () => {
+    navigate("/login")
   }
 
-  const read = () => {
-    navigate("/notes")
+  const handleSignup = () => {
+    navigate("/signup")
   }
+
 
   return (
-    <>
-    <Navi/>
-      <section className='min-h-screen bg-[#22242a] flex flex-col items-center justify-center gap-8'>
+    <div className='h-dvh bg-[#FAF9F6] p-2 flex flex-col justify-start relative'>
 
-        <h1 className='text-center text-white font-bold text-4xl'>Welcome!</h1>
-        <div className='text-white p-4 flex flex-row justify-around items-center w-full'>
+      <div className='flex flex-col items-center mt-8'>
+        <img src={logo} alt="NoteNest" className="h-60 w-60 object-contain" />
+        <h1 className="text-[#2D3142] font-black text-[50px] font-caveat">NoteNest</h1>
+        <p className="font-poppins text-[#6B7080] text-[14px] leading-5 tracking-wide mt-8">Capture your thoughts, <br /><span>build a better tomorrow</span></p>
+      </div>
 
-          <button className='bg-slate-600 px-4 py-2 rounded-xl tracking-wider font-bold text-lg flex flex-row items-center gap-2' onClick={create}>
-            <SquarePen size={25} color="#ffffff" strokeWidth={1.5} />Create Note
+      <div className="flex items-center justify-center gap-2 p-4 mb-8"> 
+        <div className="h-0.5 w-10 bg-[#6C63D9]" />
+        <span>💜</span>
+        <div className="h-0.5 w-10 bg-[#6C63D9]" />
+      </div>
+
+      <section className='flex flex-col gap-4 items-center'>
+
+        <div className="px-4 items-center w-full relative mt-8">          
+          <button type="button" onClick={handleLogin} className="bg-[#8881DD] px-6 py-4 rounded-xl text-white font-poppins font-semibold text-[16px] cursor-pointer w-full tracking-wide hover:bg-[#7770D0] disabled:opacity-60 disabled:cursor-not-allowed">
+            Log In<ArrowRight  strokeWidth={2} size={22} color="white" className='absolute right-10 top-1/2 -translate-y-1/2' />
           </button>
-
-          <button className='bg-slate-600 px-4 py-2 rounded-xl tracking-wider font-bold text-lg flex flex-row items-center gap-2' onClick={read}>
-            <BookOpen size={25} color="#ffffff" strokeWidth={1.5} />Read Notes
-          </button>
-
         </div>
-
+        <div className="px-4 w-full relative">
+          <button type="button" onClick={handleSignup} className="bg-[#ffffff] px-6 py-4 rounded-xl text-[#8881DD] font-poppins font-semibold text-[16px] border-[#8881DD] border-2 cursor-pointer w-full tracking-wide hover:bg-[#F1F0FC] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+            Sign Up<ArrowRight  strokeWidth={2} size={22} color="#8881DD" className='absolute right-10 top-1/2 -translate-y-1/2' />
+          </button>            
+        </div>
       </section>
-      
-    </>
+
+      <div className='flex flex-col justify-center items-center absolute bottom-6 inset-x-0 mx-auto w-fit'>
+        <p className= 'text-[#6B7080]'>Your notes, Your space</p>
+        <p className='text-center'>🩶</p>
+      </div>
+
+    </div>
   )
 }
 

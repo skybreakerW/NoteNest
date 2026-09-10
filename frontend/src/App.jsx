@@ -1,7 +1,11 @@
 import { Routes, Route } from "react-router-dom"
 import Land from "./pages/Land.jsx"
+import ProtectedRoute from "./components/ProtectedRoute.jsx"
+import Signup from "./pages/Signup.jsx"
+import Login from "./pages/Login.jsx"
 import CreateNote from "./pages/CreateNote.jsx"
 import Notes from "./pages/Notes.jsx"
+
 
 
 function App() {
@@ -9,12 +13,27 @@ function App() {
 
   return (
 
-
     
     <Routes>
+
       <Route path = '/' element={<Land/>} />
-      <Route path = '/create' element={<CreateNote/>} />
-      <Route path = '/notes' element={<Notes/>} />  
+      <Route path = '/signup' element={<Signup/>} />
+      <Route path = '/login' element={<Login/>} />
+
+
+      <Route path = '/create' element={
+        <ProtectedRoute>
+          <CreateNote/>
+        </ProtectedRoute>
+        } />
+
+
+      <Route path = '/notes' element={
+        <ProtectedRoute>
+          <Notes/>
+        </ProtectedRoute>
+        } />
+      
     </Routes>
   )
 }

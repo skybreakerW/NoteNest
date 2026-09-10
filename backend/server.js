@@ -1,16 +1,19 @@
-import dotenv from "dotenv"
-import express from "express"
+import "./load-env.js"
 import { connectDB } from "./src/db/db.js"
 import { app } from "./src/app.js"
 
-dotenv.config({
-    path: "./.env"
-})
-
 const port = process.env.PORT || 8080
 
-connectDB()
+const startServer = async() => {
+    try {
+        await connectDB()
+        app.listen(port, "0.0.0.0", () => {
+            console.log(`Server listening on port: ${port}`)
+        })
+    } catch (error) {
+        console.error("Failed to start server:", error);
+        process.exit(1); 
+    }
+}
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}...`)
-})
+startServer()
