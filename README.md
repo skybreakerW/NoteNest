@@ -9,7 +9,17 @@
 
 A full-stack note-taking application built with the MERN stack.
 
+**Live Demo:** https://notenest-theta.vercel.app
+
+**Backend API:** https://notenest-20v2.onrender.com
+
+---
+
+## Overview
+
 NoteNest allows authenticated users to create, view, edit, and delete their own notes through a responsive web interface.
+
+---
 
 ## Features
 
@@ -24,6 +34,34 @@ NoteNest allows authenticated users to create, view, edit, and delete their own 
 * Responsive UI
 * Centralized Axios API configuration
 * User logout
+
+---
+
+## Screenshots
+
+### Work Flow
+
+![NoteNest Work Flow](./screenshots/WorkFlow.gif)
+
+### Home Page
+
+![NoteNest Home Page](./screenshots/HomePage.png)
+
+### Authentication
+
+![NoteNest Login](./screenshots/Login.png)
+
+![NoteNest Sign Up](./screenshots/SignUp.png)
+
+### Dashboard
+
+![NoteNest Notes Page](./screenshots/NotesPage.png)
+
+### Session Management
+
+![NoteNest Sessions](./screenshots/WriteNote.png)
+
+---
 
 ## Tech Stack
 
@@ -44,6 +82,8 @@ NoteNest allows authenticated users to create, view, edit, and delete their own 
 * JSON Web Tokens (JWT)
 * bcrypt
 
+---
+
 ## Authentication
 
 NoteNest uses JWT-based authentication.
@@ -57,6 +97,8 @@ Authorization: Bearer <token>
 The backend authentication middleware verifies the token before allowing access to protected note routes.
 
 Each note is associated with its owner, and note operations are restricted to the authenticated user.
+
+---
 
 ## API
 
@@ -86,6 +128,8 @@ GET /api/health
 
 Returns the current server status.
 
+---
+
 ## Project Structure
 
 ```text
@@ -110,8 +154,13 @@ NoteNest/
 │   ├── server.js
 │   └── package.json
 │
+├── screenshots/
+├── .gitignore
+├── .node-version
 └── README.md
 ```
+
+---
 
 ## Getting Started
 
@@ -161,6 +210,8 @@ npm run dev
 
 The frontend will then be available through the local Vite development server.
 
+---
+
 ## Environment Variables
 
 The backend requires:
@@ -172,6 +223,8 @@ The backend requires:
 | `JWT_SECRET` | Secret used to sign and verify JWTs |
 
 **Never commit your `.env` file or expose your JWT secret.**
+
+---
 
 ## Current Status
 
@@ -186,14 +239,16 @@ The current version includes:
 * Responsive frontend interface
 * Login, signup, and logout flows
 
+---
+
 ## Future Improvements
 
 * Automated frontend/backend testing
 * Note search and filtering
 * Note categories or tags
 
-## Author
+---
 
-**Akash Sharma**
+## License
 
-GitHub: [skybreakerW](https://github.com/skybreakerW)
+This project is currently intended as a portfolio and learning project.
