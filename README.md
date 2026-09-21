@@ -39,13 +39,13 @@ NoteNest allows authenticated users to create, view, edit, and delete their own 
 
 ## Screenshots
 
-### Work Flow
+### Live Work Flow
 
 ![NoteNest Work Flow](./screenshots/WorkFlow.gif)
 
 ### Home Page
 
-![NoteNest Home Page](./screenshots/HomePage.png)
+![NoteNest Home Page](./screenshots/Homepage.png)
 
 ### Authentication
 
@@ -53,13 +53,13 @@ NoteNest allows authenticated users to create, view, edit, and delete their own 
 
 ![NoteNest Sign Up](./screenshots/SignUp.png)
 
-### Dashboard
+### Collection of Notes
 
 ![NoteNest Notes Page](./screenshots/NotesPage.png)
 
-### Session Management
+### Note Writing
 
-![NoteNest Sessions](./screenshots/WriteNote.png)
+![NoteNest Writing](./screenshots/WriteNote.png)
 
 ---
 
